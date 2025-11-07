@@ -1,0 +1,55 @@
+services:
+  frontend-public:
+    build: ./frontend-public
+    container_name: frontend-public
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://backend:5000
+    depends_on:
+      - backend
+
+  frontend-admin:
+    build: ./frontend-admin
+    container_name: frontend-admin
+    ports:
+      - "5173:80"
+    environment:
+      VITE_API_URL: http://backend:5000
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USERNAME: mysql
+      DB_PASSWORD: password
+      DB_NAME: ecommerce
+      USER_URL: http://localhost:3000
+      ADMIN_URL: http://localhost:5173
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ecommerce
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
