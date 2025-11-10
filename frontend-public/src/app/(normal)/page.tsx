@@ -12,7 +12,7 @@ import CategoryScroller from "@/components/categories-scroll";
 export default async function Home() {
   const featuredProducts = await getFeaturedProducts();
   const categories: Category[] = await getAllCateogires();
-  console.log("fetauredProducts", featuredProducts);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}

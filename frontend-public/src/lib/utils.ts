@@ -23,9 +23,15 @@ export async function apiFetch(url: string, options: RequestInit = {}) {
   if (res.status === 401 && data?.error === "TokenExpired") {
     console.warn("Token expired, calling /me...");
 
-    const meRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/me`, {
-      credentials: "include",
-    });
+    const meRes = await fetch(
+      `${
+        process.env.NEXT_PUBLIC_DOCKER_BACKEND_URL ??
+        process.env.NEXT_PUBLIC_API_BASE_URL
+      }/me`,
+      {
+        credentials: "include",
+      }
+    );
 
     if (!meRes.ok) {
       throw new Error("Session refresh failed");
