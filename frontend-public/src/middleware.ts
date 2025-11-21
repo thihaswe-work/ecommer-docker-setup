@@ -1,7 +1,12 @@
 // middleware.ts
 import { NextResponse, type NextRequest } from "next/server";
 
-const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_URL =
+  process.env.NEXT_PUBLIC_DOCKER_BACKEND_URL ??
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  "";
+
+console.log("inside docker", API_URL);
 
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get("token")?.value;
@@ -16,6 +21,10 @@ export async function middleware(req: NextRequest) {
   //   return NextResponse.redirect(new URL("/", req.url));
   // }
   // return NextResponse.next();
+  if (!API_URL) {
+    console.error("API_URL is not defined");
+    return NextResponse.next();
+  }
 
   let underMaintenance = false;
   try {

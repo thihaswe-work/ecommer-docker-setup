@@ -41,7 +41,10 @@ export async function getAllProducts({
   }
 
   const data = await apiFetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products?${params}`,
+    `${
+      process.env.NEXT_PUBLIC_DOCKER_BACKEND_URL ??
+      process.env.NEXT_PUBLIC_API_BASE_URL
+    }/products?${params}`,
     {
       headers: { Cookie: `token=${token}` },
     }
@@ -52,7 +55,10 @@ export async function getAllProducts({
 
 export async function getProductById(id: number): Promise<Product> {
   const product = apiFetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${id}`
+    `${
+      process.env.NEXT_PUBLIC_DOCKER_BACKEND_URL ??
+      process.env.NEXT_PUBLIC_API_BASE_URL
+    }/products/${id}`
   );
   return product;
 }
@@ -69,7 +75,10 @@ export async function getFeaturedProducts({
   const token = cookies().get("token")?.value;
   // await delay(5000);
   const res = await apiFetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products?page=${page}&limit=${limit}&order=${order}`,
+    `${
+      process.env.NEXT_PUBLIC_DOCKER_BACKEND_URL ??
+      process.env.NEXT_PUBLIC_API_BASE_URL
+    }/products?page=${page}&limit=${limit}&order=${order}`,
 
     {
       headers: { Cookie: `token=${token}` },

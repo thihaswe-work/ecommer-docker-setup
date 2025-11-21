@@ -5,7 +5,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      NEXT_PUBLIC_API_BASE_URL: http://backend:5000
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:5000
+      NEXT_PUBLIC_DOCKER_BACKEND_URL: http://backend:5000
     depends_on:
       - backend
 
@@ -15,11 +16,13 @@ services:
     ports:
       - "5173:80"
     environment:
-      VITE_API_URL: http://backend:5000
+      VITE_API_URL: http://localhost:5000
     depends_on:
       - backend
 
   backend:
+    depends_on:
+      - mysql
     build: ./backend
     container_name: backend
     ports:
@@ -34,8 +37,7 @@ services:
       DB_NAME: ecommerce
       USER_URL: http://localhost:3000
       ADMIN_URL: http://localhost:5173
-    depends_on:
-      - mysql
+      JWT_SECRET: roleSecret
 
   mysql:
     image: mysql:8

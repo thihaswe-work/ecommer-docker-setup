@@ -16,13 +16,6 @@ import { User } from '@/entities/user.entity';
 })
 export class MeModule implements common.NestModule {
   configure(consumer: common.MiddlewareConsumer) {
-    // consumer
-    //   .apply(AuthMiddleware)
-    //   .forRoutes(
-    //     { path: 'me', method: common.RequestMethod.PUT },
-    //     { path: 'me', method: common.RequestMethod.DELETE },
-    //     { path: 'me', method: common.RequestMethod.GET },
-    //   ); // Only protect /users/me
     consumer.apply(AuthMiddleware).forRoutes(MeController);
   }
 }

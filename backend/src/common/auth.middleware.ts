@@ -34,7 +34,6 @@ export class AuthMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     const cookieHeader = req.headers['cookie']; // may be undefined
     let authToken: string | undefined;
-
     const origin = req.headers['origin'] || req.headers['referer'];
 
     if (cookieHeader) {
@@ -56,6 +55,8 @@ export class AuthMiddleware implements NestMiddleware {
       }
     }
 
+    
+
     // Fallback to getToken function if no token found
     // ----------- No need this code ------------
     if (!authToken) {
@@ -65,7 +66,7 @@ export class AuthMiddleware implements NestMiddleware {
     if (!authToken) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
-
+    
     req.authToken = authToken; // store safely
     next();
   }

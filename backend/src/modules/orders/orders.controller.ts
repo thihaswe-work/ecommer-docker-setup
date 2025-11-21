@@ -28,6 +28,7 @@ export class OrdersController {
   getAll(@Req() req: Request) {
     return this.ordersService.findAll();
   }
+  
   @Get(':id')
   @UseGuards(AuthGuard, OwnershipGuardFactory(Order))
   getById(@Param('id') id: string) {
@@ -37,7 +38,6 @@ export class OrdersController {
   @Post()
   create(@Req() req: Request, @Body() body: any) {
     // return this.ordersService.findById('44dac909-6de8-40ba-b2be-07395233d852');
-
     return this.ordersService.create(body);
   }
 

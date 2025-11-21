@@ -34,6 +34,7 @@ export const useAuthStore = create<AuthState>((set) => ({
         password,
         remember,
       });
+
       if (res.data.user.role !== "admin") {
         await apiClient.post("/auth/logout");
         throw new Error("Unauthorized User");
