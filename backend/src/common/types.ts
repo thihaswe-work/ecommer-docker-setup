@@ -12,6 +12,7 @@ export interface Address {
   createdAt: Date;
   userId: string;
 }
+
 export interface Product {
   id: number;
   name: string;
@@ -24,15 +25,15 @@ export interface Product {
 
 export interface PaymentMethod {
   id: number;
-  // type: 'card' | 'paypal'; // e.g., "card", "paypal", etc.
   cardLast4?: string;
   cardBrand?: string;
   expiryMonth?: number;
   expiryYear?: number;
   isDefault: boolean;
   createdAt: Date;
-  userId: string; // if you want to reference the user's ID
+  userId: string; 
 }
+
 export interface User {
   id: string;
   name: string;
@@ -42,6 +43,7 @@ export interface User {
   updatedAt: Date;
   password?: string;
 }
+
 export interface OrderItem {
   id: number;
   productId: number;

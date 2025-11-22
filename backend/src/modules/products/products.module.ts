@@ -16,15 +16,11 @@ import { Category } from '@/entities';
   controllers: [ProductsController],
   providers: [
     ProductsService,
-    // {
-    //   provide: APP_GUARD,
-    //   useClass: RolesGuard,
-    // },
+    
   ],
 })
 export class ProductsModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Protect product routes (POST + PUT)
     consumer
       .apply(AuthMiddleware)
       .forRoutes(
@@ -32,6 +28,5 @@ export class ProductsModule implements NestModule {
         { path: 'products/:id', method: RequestMethod.PUT },
         { path: 'products/:id', method: RequestMethod.DELETE },
       );
-    // consumer.apply(AuthMiddleware).forRoutes(ProductsController);
   }
 }

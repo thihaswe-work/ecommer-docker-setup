@@ -346,6 +346,8 @@ const products = [
     quantity: 70,
   },
 ];
+
+// chatgpt
 @Injectable()
 export class SeederService {
   async seed() {
@@ -380,7 +382,7 @@ export class SeederService {
     const admin = userRepo.create({
       firstName: 'John',
       lastName: 'Doe',
-      email: 'admin@passiongeek.com',
+      email: 'admin@cs50.com',
       password: 'admin123',
       role: 'admin',
     });

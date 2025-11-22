@@ -17,10 +17,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 })
 export class SettingModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Protect product routes (POST + PUT)
     consumer
       .apply(AuthMiddleware)
       .forRoutes({ path: 'settings', method: RequestMethod.PUT });
-    // consumer.apply(AuthMiddleware).forRoutes(ProductsController);
   }
 }

@@ -28,7 +28,6 @@ export class MeMiddleware implements NestMiddleware {
         next();
       } catch (err: any) {
         if (err.name === 'TokenExpiredError') {
-          // return a specific response so frontend knows what to do
           return res.status(401).json({
             error: 'TokenExpired',
             message: 'Your session has expired. Please call /me to refresh.',

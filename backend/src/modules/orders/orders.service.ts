@@ -22,14 +22,14 @@ export class OrdersService {
 
   async findAll(): Promise<Order[]> {
     return this.repo.find({
-      relations: ['orderItems', 'payment', 'contact', 'shippingAddress'], // list the relations you want
-    });
+      relations: ['orderItems', 'payment', 'contact', 'shippingAddress'], 
+     });
   }
 
   async findById(id: string): Promise<Order> {
     const order = await this.repo.findOne({
       where: { id },
-      relations: ['orderItems'], // include OrderItems
+      relations: ['orderItems'], 
     });
     if (!order) {
       throw new NotFoundException(`Order with id ${id} not found`);
@@ -48,11 +48,10 @@ export class OrdersService {
       shipping: payload.shipping,
       total: payload.total,
       status: 'pending',
-      contact: payload.contact, // plain object works because cascade: true
-      payment: payload.payment, // same here
+      contact: payload.contact, 
+      payment: payload.payment, 
       shippingAddress: payload.shippingAddress,
-      // same here
-      orderItems: payload.orderItems, // array of plain objects
+      orderItems: payload.orderItems, 
     });
 
     // Reduce inventory stock

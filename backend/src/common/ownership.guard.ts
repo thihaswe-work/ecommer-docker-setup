@@ -1,38 +1,4 @@
-// // src/guards/ownership.guard.ts
-// import {
-//   CanActivate,
-//   ExecutionContext,
-//   Injectable,
-//   ForbiddenException,
-// } from '@nestjs/common';
-// import { OrdersService } from '../modules/orders/orders.service';
-// import { Order } from '@/entities/order.entity';
-// import { InjectRepository } from '@nestjs/typeorm';
-// import { Repository } from 'typeorm';
 
-// @Injectable()
-// export class OwnershipGuard implements CanActivate {
-//   constructor(
-//     @InjectRepository(Order) private readonly repo: Repository<Order>,
-//   ) {}
-//   async canActivate(context: ExecutionContext): Promise<boolean> {
-//     const request = context.switchToHttp().getRequest();
-//     const user = request.user;
-//     const orderId = request.params.id;
-
-//     // Admin bypass
-//     if (user.role === 'admin') return true;
-
-//     // Check ownership for normal users
-//     const order = await this.repo.findOneBy({ id: orderId });
-
-//     if (!order) throw new ForbiddenException('Order not found');
-
-//     if (order.customerId !== user.id)
-//       throw new ForbiddenException('Not allowed');
-//     return true;
-//   }
-// }
 
 // src/guards/ownership.guard.ts
 import { User } from '@/entities/user.entity';

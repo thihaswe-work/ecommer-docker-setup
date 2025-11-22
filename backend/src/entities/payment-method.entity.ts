@@ -15,8 +15,6 @@ export class PaymentMethod {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @Column({ length: 50 })
-  // paymentType: 'card' | 'paypal'; // e.g., "card", "paypal", etc.
   @Column({ default: 'card' })
   type: 'card' | 'paypal' | 'onDelivery';
 

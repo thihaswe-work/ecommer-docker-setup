@@ -1,18 +1,16 @@
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
-  OneToMany,
-  ManyToOne,
+  Entity,
   JoinColumn,
+  ManyToOne,
+  OneToMany,
   OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
-import { OrderItem } from "./orderItem.entity";
-import { Address } from "src/entities/address.entity";
-import { PaymentMethod } from "src/entities/payment-method.entity";
 import { Contact } from "./contact.entity";
+import { OrderItem } from "./orderItem.entity";
 import { Payment } from "./payment.entity";
 import { ShippingAddress } from "./shipping-address.entity";
 

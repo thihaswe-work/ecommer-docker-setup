@@ -22,7 +22,6 @@ export class SettingService {
       return this.repo.save(setting);
     }
 
-    // if not found, create one
     const newSetting = this.repo.create({ id: 1, underMaintenance });
     return this.repo.save(newSetting);
   }

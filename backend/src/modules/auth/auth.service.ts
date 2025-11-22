@@ -16,7 +16,6 @@ export class AuthService {
   async islogin(
     token?: string,
   ): Promise<{ user: User; newToken?: string } | null> {
-    // In real app, verify JWT. For now, we just check the token string
     if (!token) throw new UnauthorizedException('Unauthorized');
 
     let payload: any;
@@ -41,8 +40,7 @@ export class AuthService {
         throw new UnauthorizedException('Unauthorized');
       }
     }
-    // Return a sample user, you can fetch actual user if you store userId in JWT
-    const user = await this.repo.findOneBy({ email: payload.email }); // example
+    const user = await this.repo.findOneBy({ email: payload.email }); 
 
     if (!user) {
       throw new UnauthorizedException('Not logged in');
@@ -91,7 +89,7 @@ export class AuthService {
       lastName,
       email,
       password: password,
-      role: Role.User, // default role
+      role: Role.User, 
     });
 
     const user = await this.repo.save(newUser);

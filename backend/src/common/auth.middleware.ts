@@ -1,30 +1,4 @@
-// import { Injectable, NestMiddleware } from '@nestjs/common';
-// import { Request, Response, NextFunction } from 'express';
-// import { getToken } from './lib';
 
-// @Injectable()
-// export class AuthMiddleware implements NestMiddleware {
-//   use(req: Request, res: Response, next: NextFunction) {
-//     // const bearer = req.headers['authorization'];
-
-//     console.log(req);
-
-//     const bearer = req.headers['cookie'];
-//     const divideAdminAndUser = bearer.split('; ');
-
-//     const isAdmin = bearer.split('=')[0] === 'adminToken';
-
-//     // const authHeader = bearer?.split(' ')[1] || getToken(req.headers.cookie);
-//     const authHeader = isAdmin
-//       ? bearer.split('=')[1]
-//       : getToken(req.headers.cookie);
-//     if (!authHeader) {
-//       return res.status(401).json({ message: 'Unauthorized' });
-//     }
-//     req.authToken = authHeader; // ✅ store safely
-//     next();
-//   }
-// }
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { getToken } from './lib';

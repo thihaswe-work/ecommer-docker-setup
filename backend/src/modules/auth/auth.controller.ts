@@ -43,8 +43,6 @@ export class AuthController {
     return res
       .status(HttpStatus.OK)
       .json({ message: 'Logged in', user: safeUser });
-
-    // res.json('hello');
   }
 
   @Post('login')

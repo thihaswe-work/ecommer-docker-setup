@@ -41,7 +41,6 @@ export class User {
   @UpdateDateColumn({ type: 'datetime' })
   updatedAt: Date;
 
-  // One user can have many addresses
   @OneToMany(() => Address, (address) => address.user, {
     eager: true,
     cascade: true,

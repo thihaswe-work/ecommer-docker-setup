@@ -25,7 +25,6 @@ export class ProductsService {
       },
     });
 
-    // If categoryId is provided in the data, find the category and assign it
     if (data.categoryId) {
       const category = await this.categoryRepo.findOneBy({
         id: data.categoryId,
@@ -43,12 +42,11 @@ export class ProductsService {
   ): Promise<Product> {
     const existing = await this.repo.findOne({
       where: { id },
-      relations: ['category'], // Ensure the current category is loaded
+      relations: ['category'], 
     });
 
     if (!existing) throw new NotFoundException('Product not found');
 
-    // If categoryId is provided in the data, find the category and assign it
     if (data.categoryId) {
       const category = await this.categoryRepo.findOneBy({
         id: data.categoryId,
@@ -57,10 +55,8 @@ export class ProductsService {
       existing.category = category;
     }
 
-    // Update other fields of the product
     Object.assign(existing, data);
 
-    // Save the updated product
     return this.repo.save(existing);
   }
 
@@ -72,6 +68,7 @@ export class ProductsService {
     return this.repo.delete(id);
   }
 
+// chatgpt
   async findAll(
     page: number,
     limit: number,
@@ -79,16 +76,15 @@ export class ProductsService {
     query?: string,
     min?: number,
     max?: number,
-    categories?: number[] | undefined, //
+    categories?: number[] | undefined, 
   ) {
     const qb = this.repo
       .createQueryBuilder('product')
       .leftJoinAndSelect('product.inventory', 'inventory')
-      .leftJoinAndSelect('product.category', 'category') // join category relation
+      .leftJoinAndSelect('product.category', 'category') 
       .orderBy('product.name', order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC')
       .take(limit)
       .skip((page - 1) * limit);
-    // Only active products
     qb.andWhere('product.status = :status', { status: true });
 
     if (query) {
@@ -107,7 +103,6 @@ export class ProductsService {
     }
 
     const [data, total] = await qb.getManyAndCount();
-    // Remove status from the returned objects
     const cleanedData = data.map(({ status, ...rest }) => rest);
     return {
       data: cleanedData,
@@ -128,7 +123,7 @@ export class ProductsService {
   async findOne(id: number): Promise<Product> {
     return await this.repo.findOne({
       where: { id },
-      relations: ['inventory'], // make sure inventory is loaded
+      relations: ['inventory'], 
     });
   }
 }

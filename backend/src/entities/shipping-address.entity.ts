@@ -1,13 +1,8 @@
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
-  CreateDateColumn,
-  UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
+  Entity,
+  PrimaryGeneratedColumn
 } from "typeorm";
-import { User } from "./user.entity";
 
 @Entity("shipping_addresses")
 export class ShippingAddress {

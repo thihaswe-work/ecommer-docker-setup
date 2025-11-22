@@ -24,7 +24,6 @@ import { Category } from '@/entities/category.entity';
 })
 export class CategoriesModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Protect product routes (POST + PUT)
     consumer
       .apply(AuthMiddleware)
       .forRoutes(
@@ -32,6 +31,5 @@ export class CategoriesModule implements NestModule {
         { path: 'categories/:id', method: RequestMethod.PUT },
         { path: 'categories/:id', method: RequestMethod.DELETE },
       );
-    // consumer.apply(AuthMiddleware).forRoutes(ProductsController);
   }
 }

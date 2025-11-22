@@ -1,6 +1,5 @@
-import { Injectable, NotFoundException, Query } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like } from 'typeorm';
 import { Repository } from 'typeorm';
 import { Category } from '../../entities/category.entity';
 
@@ -37,7 +36,7 @@ export class CategoriesService {
   async findOne(id: number): Promise<Category> {
     return await this.repo.findOne({
       where: { id },
-      relations: ['inventory'], // make sure inventory is loaded
+      relations: ['inventory'], 
     });
   }
 }

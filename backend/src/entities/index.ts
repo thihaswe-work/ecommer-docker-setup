@@ -1,5 +1,4 @@
 export * from './address.entity';
-export * from './admin.entity';
 export * from './category.entity';
 export * from './contact.entity';
 export * from './inventory.entity';

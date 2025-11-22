@@ -13,7 +13,6 @@ import { UsersService } from './users.service';
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // Protect product routes (POST + PUT)
     consumer.apply(AuthMiddleware).forRoutes(UsersController);
   }
 }

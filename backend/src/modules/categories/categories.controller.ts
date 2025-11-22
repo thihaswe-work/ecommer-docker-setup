@@ -44,7 +44,7 @@ export class CatgoriesController {
   @Roles(Role.Admin)
   update(@Param('id') id: number, @Body() body: Partial<Product>) {
     const updated = this.categoryService.update(id, body);
-    if (!updated) throw new Error('Product not found'); // or use HttpException
+    if (!updated) throw new Error('Product not found'); 
     return updated;
   }
 
