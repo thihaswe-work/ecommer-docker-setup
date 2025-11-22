@@ -7,7 +7,6 @@ export * from './orderItem.entity';
 export * from './payment-method.entity';
 export * from './payment.entity';
 export * from './product.entity';
-export * from './review.entity';
 export * from './setting.entity';
 export * from './shipping-address.entity';
 export * from './user.entity';
