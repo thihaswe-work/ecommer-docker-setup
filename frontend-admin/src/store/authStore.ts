@@ -53,7 +53,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: async () => {
     const currentUser = useAuthStore.getState().user;
     try {
-      await apiClient.post("/auth/logout", { userRole: currentUser?.role }); // clear cookie on backend
+      await apiClient.post("/auth/logout", { userRole: currentUser?.role });
     } catch (err) {
       console.error("Logout failed", err);
     } finally {

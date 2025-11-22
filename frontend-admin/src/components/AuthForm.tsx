@@ -1,4 +1,3 @@
-// src/components/AuthForm.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -47,7 +46,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit }) => {
           ? z.string().min(6, "Confirm password is required")
           : z.string().optional(),
       remember:
-        mode === "login" ? z.boolean().optional() : z.boolean().optional(), // add remember
+        mode === "login" ? z.boolean().optional() : z.boolean().optional(),
     })
     .refine(
       (data) =>
@@ -64,7 +63,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit }) => {
       email: "",
       password: "",
       confirmPassword: "",
-      remember: false, // default unchecked
+      remember: false,
     },
   });
 
@@ -85,7 +84,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit }) => {
     setLoading(true);
     setError(null);
     try {
-      await onSubmit(values); // values.remember will be true/false
+      await onSubmit(values);
       if (mode !== "reset") navigate("/");
     } catch (err: any) {
       setError(err.message || "Something went wrong");
@@ -149,6 +148,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit }) => {
                 )}
               />
             )}
+
             {/* Confirm Password for register */}
             {mode === "register" && (
               <FormField
@@ -203,13 +203,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit }) => {
         {/* Footer links */}
         {mode === "login" && (
           <p className="text-center text-muted-foreground text-sm mt-4 space-x-2">
-            {/* <span
-              className="text-primary cursor-pointer hover:underline"
-              onClick={() => navigate("/register")}
-            >
-              Sign Up
-            </span> */}
-            |
             <span
               className="text-primary cursor-pointer hover:underline"
               onClick={() => navigate("/reset-password")}

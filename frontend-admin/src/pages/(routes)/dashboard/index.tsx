@@ -22,7 +22,7 @@ import {
 
 const DashboardPage = () => {
   const [sortAsc, setSortAsc] = useState(false);
-  const { theme } = useThemeStore(); // get current theme
+  const { theme } = useThemeStore();
   const isDark = theme === "dark";
 
   // const logout = useAuthStore((state) => state.logout);
@@ -82,9 +82,8 @@ const DashboardPage = () => {
   };
 
   // Chart colors based on theme
-  const barColor = isDark ? "#818cf8" : "#4f46e5"; // lighter in dark mode
-  const axisColor = isDark ? "#f3f4f6" : "#111827"; // light for dark mode, dark for light mode
-
+  const barColor = isDark ? "#818cf8" : "#4f46e5";
+  const axisColor = isDark ? "#f3f4f6" : "#111827";
   return (
     <div className="p-6 bg-background text-foreground min-h-screen space-y-6">
       <h1 className="text-3xl font-bold">Dashboard</h1>

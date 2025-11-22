@@ -1,3 +1,4 @@
+// chatgpt
 import { create } from "zustand";
 
 type Theme = "light" | "dark";

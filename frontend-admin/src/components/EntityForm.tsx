@@ -1,3 +1,4 @@
+// chatgpt
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,8 +19,8 @@ import { ChevronDown } from "lucide-react";
 interface Field {
   name: string;
   label: string;
-  type?: string; // text, number, etc.
-  required?: boolean; // default false
+  type?: string;
+  required?: boolean;
   dropdown?: any[];
 }
 

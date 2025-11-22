@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { SidebarTrigger } from "@/components/ui/sidebar"; // import SidebarTrigger
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuthStore } from "@/store/authStore";
 import { useThemeStore } from "@/store/themeStore";
 import { motion } from "framer-motion";
-import { LogOut, Menu, Moon, Sun, User } from "lucide-react"; // Menu icon optional
+import { LogOut, Menu, Moon, Sun, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -11,8 +11,7 @@ export default function Navbar() {
   const logout = useAuthStore((state) => state.logout);
 
   const handleLogout = async () => {
-    // Perform logout logic here (clear token, call API, etc.)
-    await logout(); // redirect to login page
+    await logout();
   };
   const { theme, toggleTheme } = useThemeStore();
   return (

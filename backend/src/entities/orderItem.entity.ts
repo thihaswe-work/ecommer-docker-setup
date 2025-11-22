@@ -31,7 +31,7 @@ export class OrderItem {
   order: Order;
 
   @ManyToOne(() => Product, (product) => product)
-  @JoinColumn() // column name in DB
+  @JoinColumn() 
   product: Product;
 
   @Column()

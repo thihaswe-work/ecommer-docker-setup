@@ -124,7 +124,7 @@ export default function ProductsPage() {
     //   },
     // },
     {
-      accessorKey: "inventory.price", // points to nested inventory price
+      accessorKey: "inventory.price",
       header: ({ column }) => {
         return (
           <Button
@@ -138,7 +138,7 @@ export default function ProductsPage() {
       },
       cell: ({ row }) => {
         const inventory = row.original.inventory;
-        const price = inventory?.price ?? 0; // fallback if inventory is undefined
+        const price = inventory?.price ?? 0;
         return (
           <div className="font-medium">
             {new Intl.NumberFormat("en-US", {

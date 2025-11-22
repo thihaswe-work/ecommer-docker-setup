@@ -11,10 +11,10 @@ export default function AuthLayout() {
       {/* Main content area */}
       <div className="flex-1 overflow-x-auto flex flex-col">
         {/* Top Navbar */}
-        <Navbar /> {/* SidebarTrigger is already inside Navbar */}
+        <Navbar />
         {/* Page content */}
         <main className="flex-1 p-4 overflow-auto">
-          <Outlet /> {/* Protected pages render here */}
+          <Outlet />
         </main>
       </div>
     </div>

@@ -14,7 +14,6 @@ const OrderDetailPage = () => {
   });
   const order = orders[0];
 
-  // Conditionally fetch user only if customerId does not start with "guest"
   const { data: users, loading: loadingUser } = useApi<User>({
     endpoint:
       order && !order.customerId.startsWith("guest")

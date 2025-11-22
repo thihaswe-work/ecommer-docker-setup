@@ -15,7 +15,7 @@ const ProductDetailPage = () => {
     updateItem,
   } = useApi<Product>({
     endpoint: `/products/${id}`,
-    transform: (res) => (res ? [res] : []), // your useApi currently expects an array
+    transform: (res) => (res ? [res] : []),
   });
 
   const product = products?.[0];
@@ -38,7 +38,7 @@ const ProductDetailPage = () => {
     const payload: Partial<Product> = {
       ...product,
       inventory: {
-        ...product.inventory, // preserve id, createdAt, updatedAt
+        ...product.inventory,
         price,
         stock,
       },

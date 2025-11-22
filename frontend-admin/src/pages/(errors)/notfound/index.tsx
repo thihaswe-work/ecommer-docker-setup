@@ -1,7 +1,6 @@
 import React from "react";
 import { Home } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Optional: if you have a Button component
-
+import { Button } from "@/components/ui/button";
 export const NotFound: React.FC = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-background text-foreground">

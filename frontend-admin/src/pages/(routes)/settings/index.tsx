@@ -10,11 +10,8 @@ const SettingPage = () => {
   } = useApi<Setting>({
     endpoint: "/settings",
     transform: (data) => [data],
-
-    // your backend endpoint
   });
 
-  // Assume there's always 1 setting row
   const setting = settings[0];
 
   const toggleMaintenance = async () => {
@@ -22,7 +19,7 @@ const SettingPage = () => {
     await updateItem(undefined, {
       underMaintenance: !setting.underMaintenance,
     });
-    fetchData(); // refresh after update
+    fetchData();
   };
 
   if (loading) return <p>Loading...</p>;

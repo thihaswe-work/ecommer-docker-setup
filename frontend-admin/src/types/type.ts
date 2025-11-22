@@ -88,6 +88,7 @@ export interface User {
   paymentMethod?: PaymentMethod[];
   address?: Address[];
 }
+
 export interface PaymentMethod {
   id: number;
   type: "card";
@@ -115,8 +116,10 @@ export interface Address {
   createdAt: Date;
   updatedAt: Date;
 }
+
 export interface Setting {
   id: number;
   underMaintenance: boolean;
 }
+
 export type Role = "user" | "admin" | "merchant";

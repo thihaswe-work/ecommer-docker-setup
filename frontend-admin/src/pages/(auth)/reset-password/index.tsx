@@ -1,4 +1,3 @@
-// ResetPage.tsx
 import AuthForm from "@/components/AuthForm";
 import { useAuthStore } from "@/store/authStore";
 
