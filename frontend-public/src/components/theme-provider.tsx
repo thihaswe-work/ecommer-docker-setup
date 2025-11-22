@@ -1,3 +1,4 @@
+// chatgpt
 import {
   ThemeProvider as NextThemesProvider,
   type ThemeProviderProps,

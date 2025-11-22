@@ -4,6 +4,7 @@ import type { Product } from "@/types";
 import { apiFetch } from "./utils";
 import { cookies, headers } from "next/headers";
 
+// chatgpt
 // Simulate API calls with delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export async function getAllProducts({
@@ -13,7 +14,7 @@ export async function getAllProducts({
   order = "ASC",
   page = 1,
   limit = 12,
-  category = [], // default as empty array
+  category = [],
 }: {
   query?: string;
   min?: string;
@@ -21,7 +22,7 @@ export async function getAllProducts({
   order?: "ASC" | "DESC";
   page?: number;
   limit?: number;
-  category?: string[]; // make it optional array
+  category?: string[];
 }) {
   const token = cookies().get("token")?.value;
   const params = new URLSearchParams({

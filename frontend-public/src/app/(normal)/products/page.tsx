@@ -39,7 +39,7 @@ export default async function ProductsPage({
   const categoryParam = searchParams.category ?? [];
   const categoriesArray = Array.isArray(categoryParam)
     ? categoryParam
-    : [categoryParam]; // wrap single string into array
+    : [categoryParam];
 
   // const params = new URLSearchParams({
   //   query,

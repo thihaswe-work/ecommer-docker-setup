@@ -1,5 +1,5 @@
 "use client";
-
+// chatgpt
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -25,7 +25,7 @@ export default function CardPaymentForm({
   selectedPaymentMethod,
   setSelectedPaymentMethod,
 }: Props) {
-  const [cardName, setCardName] = useState("Visa"); // default selection
+  const [cardName, setCardName] = useState("Visa");
   const getBrandColor = (cardName: string) => {
     switch (cardName?.toLowerCase()) {
       case "visa":

@@ -24,7 +24,7 @@ export default function EditProfilePage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
-  const [avatar, setAvatar] = useState(""); // new state
+  const [avatar, setAvatar] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function EditProfilePage() {
     } else if (user) {
       setFirstName(user.firstName);
       setLastName(user.lastName);
-      setAvatar(user.avatar || ""); // initialize with existing URL if any
+      setAvatar(user.avatar || "");
     }
   }, [user, isLoading, router]);
 
@@ -41,9 +41,7 @@ export default function EditProfilePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-
-    updateUser({ firstName, lastName, avatar, phone }); // include profileImage
+    updateUser({ firstName, lastName, avatar, phone });
     setIsSubmitting(false);
     router.push("/profile");
   };

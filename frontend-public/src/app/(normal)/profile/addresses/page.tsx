@@ -52,7 +52,7 @@ export default function AddressesPage() {
       }
       setIsModalOpen(false);
       setSelectedAddress(null);
-      refreshProfile(); // Optional: ensure latest data
+      refreshProfile();
     } catch (error) {
       console.error("Failed to save address:", error);
     }
@@ -99,7 +99,7 @@ export default function AddressesPage() {
               <p className="text-muted-foreground mb-4">No addresses found</p>
               <Button
                 onClick={() => {
-                  setSelectedAddress(null); // <-- ensures new address
+                  setSelectedAddress(null);
                   setIsModalOpen(true);
                 }}
               >

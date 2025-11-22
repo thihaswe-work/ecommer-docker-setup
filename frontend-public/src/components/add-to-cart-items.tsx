@@ -1,14 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { Minus, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/context/cart-context";
-import { formatCurrency } from "@/lib/utils";
-import AddToCartButton from "./add-to-cart-button";
 import { Product } from "@/types";
+import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
+import AddToCartButton from "./add-to-cart-button";
 
 interface AddToCartItemsProps {
   product: Product;

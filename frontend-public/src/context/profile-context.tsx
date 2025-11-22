@@ -61,7 +61,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // <-- important
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
@@ -76,7 +76,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
       {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json", // <-- important
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
@@ -101,7 +101,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // <-- important
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
@@ -119,7 +119,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
       {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json", // <-- important
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }

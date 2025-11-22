@@ -1,9 +1,8 @@
 "use client";
-
+// chatgpt;
 import { Category } from "@/types";
-import Link from "next/link";
-import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 // Card.tsx
 const Card = ({
   category,
@@ -15,7 +14,6 @@ const Card = ({
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent) => {
-    // If the user dragged more than 5px, prevent navigation
     if (dragDistance > 5) {
       e.preventDefault();
       return;
@@ -76,7 +74,7 @@ const CategoryScroller = ({ categories }: { categories: Category[] }) => {
       const walk = (x - startX) * 1;
       scrollRef.current.scrollLeft = scrollLeft - walk;
 
-      setDragDistance(Math.abs(x - startX)); // track distance dragged
+      setDragDistance(Math.abs(x - startX));
     },
     [isDragging, startX, scrollLeft]
   );

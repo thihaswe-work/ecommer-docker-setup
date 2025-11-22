@@ -116,7 +116,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/register`,
         {
           method: "POST",
-          credentials: "include", // include cookies (if your backend sets them)
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -130,7 +130,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const data = await res.json();
 
       console.log("register response", register);
-      // Assuming your backend returns: { user: {...}, token?: "..." }
       if (data?.user) {
         setUser(data.user);
         return true;
@@ -184,7 +183,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       const updatedUser = await res.json();
-      setUser(updatedUser); // update local state
+      setUser(updatedUser);
     } catch (err: any) {
       console.error("Error updating user:", err.message);
     }
@@ -207,7 +206,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/me/password`,
         {
           method: "PUT",
-          credentials: "include", // send cookies if using cookie-based auth
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

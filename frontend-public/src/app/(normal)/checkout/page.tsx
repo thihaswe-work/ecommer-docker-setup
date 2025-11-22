@@ -1,3 +1,4 @@
+// chatgpt
 "use client";
 
 import Link from "next/link";
@@ -42,7 +43,6 @@ export default function CheckoutPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // chekcoutType ask box
   const [checkoutType, setCheckoutType] = useState<"guest" | "signin" | null>(
     null
   );

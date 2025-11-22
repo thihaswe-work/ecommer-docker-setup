@@ -8,8 +8,8 @@ interface ProductListProps {
   min?: string;
   max?: string;
   order?: "ASC" | "DESC";
-  page?: number; // current page
-  limit?: number; // items per page
+  page?: number;
+  limit?: number;
   category: string[];
 }
 
@@ -67,11 +67,10 @@ export default async function ProductList({
         {/* Page Numbers */}
         {Array.from({ length: meta.totalPages }, (_, i) => i + 1)
           .filter((page) => {
-            if (meta.totalPages <= 3) return true; // show all if <=3 pages
-            if (meta.currentPage <= 2) return page <= 3; // first 2 pages
+            if (meta.totalPages <= 3) return true;
+            if (meta.currentPage <= 2) return page <= 3;
             if (meta.currentPage >= meta.totalPages - 1)
-              return page >= meta.totalPages - 2; // last 2 pages
-            // sliding window for middle pages
+              return page >= meta.totalPages - 2;
             return page >= meta.currentPage - 1 && page <= meta.currentPage + 1;
           })
           .map((page) => (

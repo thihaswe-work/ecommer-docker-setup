@@ -53,7 +53,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const existingItem = prevCart.find((item) => item.id === product.id);
 
       if (existingItem) {
-        // If item already exists, increase quantity
         return prevCart.map((item) =>
           item.id === product.id
             ? {
@@ -63,7 +62,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             : item
         );
       } else {
-        // Otherwise add new item with quantity 1
         return [...prevCart, { ...product, quantity: q ? q : 1 }];
       }
     });
@@ -92,7 +90,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json", // ✅ important for JSON
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(orderPayload),
         }

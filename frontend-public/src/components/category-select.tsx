@@ -1,5 +1,5 @@
 "use client";
-
+// chatgpt
 import { useState, useRef, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,7 @@ export default function CategoryDropdown({
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setOpen(false);
-        setTempSelected(selectedCategories); // reset temp state on close
+        setTempSelected(selectedCategories);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);

@@ -55,7 +55,7 @@ export default function PaymentMethodModal({
     shouldUnregister: true,
   });
 
-  const cardName = watch("cardName"); // 👀 watch selected brand
+  const cardName = watch("cardName");
 
   useEffect(() => {
     reset(method || {});

@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { Plus, Edit, Trash2, CreditCard, MoveLeft } from "lucide-react";
+import PaymentMethodModal from "@/components/paymentModal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,10 +11,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useAuth } from "@/context/auth-context";
-import type { PaymentMethod } from "@/types";
-import PaymentMethodUpdateModal from "@/components/paymentModal";
 import { useProfile } from "@/context/profile-context";
-import PaymentMethodModal from "@/components/paymentModal";
+import type { PaymentMethod } from "@/types";
+import { CreditCard, Edit, MoveLeft, Plus, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function PaymentMethodsPage() {
   const { user, isLoading } = useAuth();
@@ -44,7 +43,7 @@ export default function PaymentMethodsPage() {
   const handleDelete = async (id: number) => {
     try {
       await deletePaymentMethod(id);
-      refreshProfile(); // refresh data after deletion
+      refreshProfile();
     } catch (error) {
       console.error("Failed to delete payment method:", error);
     }
@@ -59,7 +58,7 @@ export default function PaymentMethodsPage() {
       }
       setIsModalOpen(false);
       setSelectedMethod(null);
-      refreshProfile(); // ensure latest data
+      refreshProfile();
     } catch (error) {
       console.error("Failed to save payment method:", error);
     }

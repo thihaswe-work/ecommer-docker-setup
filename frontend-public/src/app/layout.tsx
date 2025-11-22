@@ -1,14 +1,12 @@
-import type React from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/context/auth-context";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type React from "react";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import { AuthProvider } from "@/context/auth-context";
-import { ThemeProvider } from "@/components/theme-provider";
 
-import dynamic from "next/dynamic";
 import { ProfileProvider } from "@/context/profile-context";
+import dynamic from "next/dynamic";
 
 const CartProvider = dynamic(
   () => import("@/context/cart-context").then((mod) => mod.CartProvider), //because i export it without default

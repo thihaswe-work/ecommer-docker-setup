@@ -16,7 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import type { Address } from "@/types";
 
 interface AddressModalProps {
-  address: Address | null; // null = new address
+  address: Address | null;
   isOpen: boolean;
   onClose: () => void;
   onSave: (updated: Address) => void;
@@ -35,11 +35,10 @@ export default function AddressModal({
     control,
     formState: { errors },
   } = useForm<Address>({
-    defaultValues: address || {}, // empty for new
-    shouldUnregister: true, // unregister unused fields
+    defaultValues: address || {},
+    shouldUnregister: true,
   });
 
-  // Reset form whenever address changes (update vs create)
   useEffect(() => {
     reset(address || {});
   }, [address, reset]);
@@ -50,7 +49,7 @@ export default function AddressModal({
       onSave({ ...address, ...data });
     } else {
       // Creating new
-      onSave({ ...data }); // generate temporary id for frontend
+      onSave({ ...data });
     }
     onClose();
   };
