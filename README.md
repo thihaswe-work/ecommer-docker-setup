@@ -1,6 +1,6 @@
 # Ecommerce
 
-#### Video Demo: <URL HERE>
+#### Video Demo: [https://youtu.be/UvD8lMeb-Ro](https://youtu.be/UvD8lMeb-Ro)
 
 #### CS50 Final Project – E-Commerce Platform
 
